@@ -1,6 +1,6 @@
 ---
 name: agent-next-action
-description: Use when the user asks what a coding agent should do next, asks to continue a repo-owned delivery workflow, or wants one safe next action from issue tracker and repo state without implementation.
+description: "Use when the user asks what a coding agent should do next, asks to continue a repo-owned delivery workflow, or wants one safe next action from issue tracker and repo state without implementation."
 ---
 
 # Agent Next Action

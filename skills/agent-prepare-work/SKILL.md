@@ -1,6 +1,6 @@
 ---
 name: agent-prepare-work
-description: Use when preparing tracked coding work before implementation: shaping the issue brief, resolving decisions, designing tests, recording approvals, and moving work to Ready.
+description: "Use when preparing tracked coding work before implementation: shaping the issue brief, resolving decisions, designing tests, recording approvals, and moving work to Ready."
 ---
 
 # Agent Prepare Work

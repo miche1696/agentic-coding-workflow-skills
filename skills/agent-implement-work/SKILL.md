@@ -1,6 +1,6 @@
 ---
 name: agent-implement-work
-description: Use when implementing tracked coding work from an approved brief, including test-first changes, verification, trace inspection, docs updates, and handoff to Done.
+description: "Use when implementing tracked coding work from an approved brief, including test-first changes, verification, trace inspection, docs updates, and handoff to Done."
 ---
 
 # Agent Implement Work

@@ -1,6 +1,6 @@
 ---
 name: agent-ship-work
-description: Use when preparing completed coding work for GitHub or another remote: reviewing changes, staging, committing, creating or connecting a repo, pushing, and opening a pull request.
+description: "Use when preparing completed coding work for GitHub or another remote: reviewing changes, staging, committing, creating or connecting a repo, pushing, and opening a pull request."
 ---
 
 # Agent Ship Work
