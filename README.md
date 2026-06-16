@@ -10,12 +10,10 @@ These skills are intentionally generic. They assume the target project keeps its
 
 | Skill | Use when |
 | --- | --- |
-| `linear-next-action` | Choosing the next safe Linear workflow action. |
-| `linear-prepare-issue` | Shaping a Linear issue into a repo-owned implementation brief. |
-| `linear-design-tests` | Designing and recording human-approved tests before implementation. |
-| `linear-implement-issue` | Implementing a Ready issue test-first from an approved brief. |
-| `linear-verify-issue` | Verifying an implemented issue and updating handoff context. |
-| `github-ship-work` | Preparing local changes for commit, push, and pull request. |
+| `agent-next-action` | Choosing the next safe action from repo docs and issue tracker state. |
+| `agent-prepare-work` | Shaping work and approving the test contract before implementation. |
+| `agent-implement-work` | Implementing, verifying, and updating handoff context from an approved brief. |
+| `agent-ship-work` | Preparing local changes for commit, push, repository publishing, or pull request. |
 
 ## Expected Project Docs
 
@@ -54,12 +52,10 @@ Restart Codex or start a new session if the skills do not appear immediately.
 ## Example Prompts
 
 ```text
-Use linear-next-action for this repo.
-Use linear-prepare-issue for ABC-123.
-Use linear-design-tests for ABC-123.
-Use linear-implement-issue for ABC-123.
-Use linear-verify-issue for ABC-123.
-Use github-ship-work for the current issue.
+Use agent-next-action for this repo.
+Use agent-prepare-work for ABC-123.
+Use agent-implement-work for ABC-123.
+Use agent-ship-work for the current issue.
 ```
 
 ## Public Safety
