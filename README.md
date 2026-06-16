@@ -1,10 +1,16 @@
 # Agentic Coding Workflow Skills
 
-Reusable workflow skills for coding agents that operate from repo-owned docs, Linear state, approved test designs, verification commands, and GitHub shipping flows.
+Reusable workflow skills and starter-kit templates for coding agents that operate from repo-owned docs, Linear state, approved test designs, verification commands, and GitHub shipping flows.
 
 The current skill format is compatible with Codex `SKILL.md` folders.
 
-These skills are generic across target projects, but intentionally Linear-driven. They assume the target project keeps product and execution truth in repository Markdown files, while Linear records operational state.
+This repo is meant to be complete on its own:
+
+- `skills/` contains the reusable agent skills.
+- `templates/` contains the target-project docs those skills expect.
+- `examples/` contains a filled docs-only target repo example.
+- `AGENTS.md` tells Codex how to install the skills and copy the templates into another repo.
+- `QUICKSTART.md` explains the manual setup flow.
 
 ## Skills
 
@@ -15,44 +21,92 @@ These skills are generic across target projects, but intentionally Linear-driven
 | `agent-implement-work` | Implementing, verifying, and updating handoff context from an approved brief. |
 | `agent-ship-work` | Preparing local changes for commit, push, repository publishing, or pull request. |
 
-## Workflow Contracts
-
-- Approval means an explicit user message in the current Codex thread.
-- Linear is the source of issue and workflow state.
-- Repo docs are the source of product, technical, and execution truth.
-- GitHub Issues or other trackers are out of scope unless the user explicitly changes the workflow.
-
-## Active Work Discovery
-
-When the active project, milestone, or issue is not named directly, use the first matching signal:
-
-1. User prompt issue, project, or milestone.
-2. Current working directory context.
-3. Repo docs under `docs/build/`.
-4. Linear active project or issue state.
-5. One concise user question when more than one target remains plausible.
-
-## Minimal Target Repo Setup
-
-For a small target repo, start with:
+## Starter Kit Contents
 
 ```text
+skills/
+  agent-next-action/
+  agent-prepare-work/
+  agent-implement-work/
+  agent-ship-work/
+
+templates/
+  AGENTS.md
+  docs/
+    build/
+      agentic-execution-guide.md
+      linear-driven-agent-workflow.md
+      next-action-protocol.md
+      milestone/
+        slice-spec.md
+        decision-log.md
+        agent-operating-contract.md
+        issues/
+          ISSUE-ID.md
+    dev/
+      codex-harness.md
+  templates/
+    build/
+      issue-implementation-brief.md
+      test-design.md
+      decision-log.md
+      agent-operating-contract.md
+      slice-spec.md
+      milestone-closeout.md
+
+examples/
+  minimal-target-repo/
+
 AGENTS.md
-docs/build/linear-driven-agent-workflow.md
-docs/build/<milestone-slug>/slice-spec.md
 ```
 
-Use `docs/build/<milestone-slug>/agent-operating-contract.md` instead of `slice-spec.md` when the milestone is mostly execution or harness work.
+The nested `templates/templates/build/` path is intentional. The outer `templates/` folder is the copyable target-repo skeleton. After copying it into a project, the target project receives its own `templates/build/` folder.
 
-Add an issue brief only when tracked work starts:
+## Target Repo Setup
+
+Clone this repo, then point Codex at it and provide the target repo path:
 
 ```text
-docs/build/<milestone-slug>/issues/<LINEAR-ID>.md
+Use this workflow kit with /path/to/target-repo.
+Install the skills and copy the templates using milestone slug milestone-1-first-useful-slice.
 ```
 
-## Expected Project Docs
+Codex should follow `AGENTS.md` in this repo. It will:
 
-The skills work best when the target repo contains some or all of these files:
+- copy `AGENTS.md`, `docs/`, and `templates/build/` into the target repo,
+- rename `docs/build/milestone/` when a milestone slug is provided,
+- install the Codex skills when asked,
+- ask before overwriting existing target files.
+
+If you only want to install the skills:
+
+```bash
+cp -R skills/* ~/.codex/skills/
+```
+
+Manual copy works without Codex:
+
+```bash
+cp templates/AGENTS.md /path/to/target-repo/AGENTS.md
+cp -R templates/docs /path/to/target-repo/
+cp -R templates/templates /path/to/target-repo/
+```
+
+Then rename:
+
+```text
+docs/build/milestone/
+```
+
+to the active milestone slug, for example:
+
+```text
+docs/build/milestone-1-first-useful-slice/
+```
+
+## Expected Target Project Docs
+
+After setup, the target repo should contain:
 
 ```text
 AGENTS.md
@@ -63,7 +117,7 @@ docs/dev/codex-harness.md
 docs/build/<milestone-slug>/slice-spec.md
 docs/build/<milestone-slug>/decision-log.md
 docs/build/<milestone-slug>/agent-operating-contract.md
-docs/build/<milestone-slug>/issues/<LINEAR-ID>.md
+docs/build/<milestone-slug>/issues/<ISSUE-ID>.md
 templates/build/issue-implementation-brief.md
 templates/build/test-design.md
 templates/build/decision-log.md
@@ -74,15 +128,12 @@ templates/build/milestone-closeout.md
 
 Projects can rename or omit files, but the skills should infer conservatively and ask one concise question when discovery becomes ambiguous.
 
-## Install
+## Workflow Contracts
 
-Copy the skill folders into your Codex skills directory:
-
-```bash
-cp -R skills/* ~/.codex/skills/
-```
-
-Restart Codex or start a new session if the skills do not appear immediately.
+- Approval means an explicit user message in the current Codex thread.
+- Linear is the default source of issue and workflow state.
+- Repo docs are the source of product, technical, and execution truth.
+- GitHub Issues or another tracker can be used only when the user explicitly changes the workflow or the target repo docs define the mapping.
 
 ## Example Prompts
 
@@ -98,7 +149,7 @@ Use agent-ship-work for the current issue.
 Before publishing, scan for local paths and organization-specific terms:
 
 ```bash
-rg -n "<absolute-home-path>|<linear-url>|<your-workspace>|<your-project>|<your-issue-prefix>"
+rg -n "<absolute-home-path>|<tracker-url>|<your-workspace>|<your-project>|<your-issue-prefix>"
 ```
 
 The skills should stay generic. Put project-specific behavior in the target repo docs, not in this reusable skill repo.
