@@ -13,7 +13,7 @@ Read these when present:
 
 1. `AGENTS.md`
 2. `docs/build/agentic-execution-guide.md`
-3. `docs/build/linear-driven-agent-workflow.md` or equivalent tracker workflow docs
+3. `docs/build/linear-driven-agent-workflow.md`
 4. Active milestone, slice, epic, or project spec
 5. Active decision log
 6. Active agent or harness operating contract
@@ -21,7 +21,7 @@ Read these when present:
 8. `templates/build/issue-implementation-brief.md`
 9. `templates/build/test-design.md`
 
-Then read the tracker issue.
+Then read the Linear issue.
 
 ## Prepare The Brief
 
@@ -55,17 +55,17 @@ Before implementation, propose the smallest useful test contract:
 - verification commands,
 - rejected or deferred tests with reasons.
 
-Ask for approval. Do not implement tests until approved.
+Ask for approval. Approval means an explicit user message in the current Codex thread. Do not implement tests until approved.
 
 After approval, record approved, rejected, and deferred tests in the brief. The work can move to `Ready` only when the brief has no blockers and the approved test contract is recorded.
 
 ## Tracker Sync
 
-When the workflow calls for tracker updates:
+When the workflow calls for Linear updates:
 
 - missing brief or shaping in progress: `Shaping`,
 - unresolved decisions: `Needs Decision`,
 - awaiting test approval: `Test Design`,
 - approved brief and tests: `Ready`.
 
-Use equivalent labels/states if the tracker is not Linear.
+Do not use another tracker unless the user explicitly changes the workflow.

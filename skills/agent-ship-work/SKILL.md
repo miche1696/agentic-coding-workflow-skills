@@ -24,7 +24,7 @@ Then inspect git state.
 - Separate unrelated dirty work from the current work.
 - Confirm ambiguous staging scope before committing.
 - Do not push, create a remote repo, or open a pull request unless the user asks.
-- Prefer a branch name that includes the issue ID or work slug when available.
+- Prefer a branch name that includes the Linear issue ID or work slug when available.
 - Include verification results in commits or pull request body when relevant.
 
 ## Commit Flow
@@ -70,4 +70,4 @@ Use this body shape:
 - <known limits or deferred work>
 ```
 
-Link the tracker issue when available.
+Link the Linear issue when available.

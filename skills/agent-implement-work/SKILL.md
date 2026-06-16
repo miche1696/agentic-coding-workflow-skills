@@ -13,14 +13,14 @@ Read these when present:
 
 1. `AGENTS.md`
 2. `docs/build/agentic-execution-guide.md`
-3. Tracker workflow docs
+3. Linear workflow docs
 4. Active milestone, slice, epic, or project spec
 5. Active decision log
 6. Active agent or harness operating contract
 7. `docs/dev/codex-harness.md` or equivalent command guide
 8. Approved issue/work brief
 
-Then confirm tracker state is `Ready`, `In Progress`, or equivalent.
+Then confirm the Linear issue state is `Ready`, `In Progress`, or equivalent.
 
 ## Required Gate
 
@@ -33,6 +33,8 @@ Before coding, confirm:
 - verification commands are documented.
 
 If any gate fails, stop and report the missing item.
+
+Approval means an explicit user message in the current Codex thread.
 
 ## Implementation Order
 
@@ -60,14 +62,16 @@ Do not add new scope during verification.
 
 ## Handoff
 
-Update future-agent context when behavior changes:
+Update only docs whose truth changed. Handoff is current enough when the next agent can identify what changed, what passed, what remains risky, and which command or state to trust without rediscovering context.
+
+Check these surfaces when behavior changes:
 
 - work brief status, verification notes, and done checklist,
 - operating contract command status, output shape, safe automation, approval requirements,
 - harness or command guide,
 - milestone/slice spec command status, risks, and acceptance assumptions,
 - decision log for approved product or foundational decisions,
-- tracker issue body/comment/status,
-- downstream issues if assumptions changed.
+- Linear issue body/comment/status,
+- downstream Linear issues if assumptions changed.
 
-The work can move to `Done` only when behavior, tests, traces, docs, and tracker state are current.
+The work can move to `Done` only when behavior, tests, traces, changed docs, and Linear state are current.

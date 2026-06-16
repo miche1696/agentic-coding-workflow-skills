@@ -1,6 +1,6 @@
 ---
 name: agent-next-action
-description: "Use when the user asks what a coding agent should do next, asks to continue a repo-owned delivery workflow, or wants one safe next action from issue tracker and repo state without implementation."
+description: "Use when the user asks what a coding agent should do next, asks to continue a repo-owned delivery workflow, or wants one safe next action from Linear and repo state without implementation."
 ---
 
 # Agent Next Action
@@ -14,11 +14,21 @@ Read these when present:
 1. `AGENTS.md`
 2. `docs/build/next-action-protocol.md`
 3. `docs/build/agentic-execution-guide.md`
-4. `docs/build/linear-driven-agent-workflow.md` or equivalent issue-tracker workflow docs
+4. `docs/build/linear-driven-agent-workflow.md`
 5. Active milestone, epic, or project docs under `docs/build/`
 6. Active issue brief, if one exists
 
-Then inspect the issue tracker state when tools are available. Linear is supported, but the skill should also work with GitHub Issues or another tracker when the repo docs define the mapping.
+Then inspect Linear state when tools are available. Do not use GitHub Issues or another tracker unless the user explicitly changes the workflow.
+
+## Active Work Discovery
+
+When the active project, milestone, or issue is not named directly, use the first matching signal:
+
+1. User prompt issue, project, or milestone.
+2. Current working directory context.
+3. Repo docs under `docs/build/`.
+4. Linear active project or issue state.
+5. One concise user question when more than one target remains plausible.
 
 ## Decision Order
 
@@ -41,7 +51,7 @@ Use the first matching action:
 Return:
 
 - `Recommended next action`: one sentence.
-- `Why`: short explanation from repo and tracker state.
+- `Why`: short explanation from repo docs and Linear state.
 - `Suggested prompt`: a copyable prompt the user can approve or run.
 - `Needs user decision`: yes or no.
 - `Blocking questions`: include only when needed.
