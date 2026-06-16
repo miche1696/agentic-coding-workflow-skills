@@ -1,8 +1,10 @@
-# Codex Linear Workflow Skills
+# Agentic Coding Workflow Skills
 
-Reusable Codex skills for a Linear-driven, repo-owned delivery workflow.
+Reusable workflow skills for coding agents that operate from repo-owned docs, issue trackers, approved test designs, verification commands, and GitHub shipping flows.
 
-These skills are intentionally generic. They assume the target project keeps its product and execution truth in repository Markdown files, while Linear tracks operational state.
+The current skill format is compatible with Codex `SKILL.md` folders.
+
+These skills are intentionally generic. They assume the target project keeps its product and execution truth in repository Markdown files, while the issue tracker records operational state.
 
 ## Skills
 
